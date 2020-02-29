@@ -53,9 +53,9 @@ Q = np.array(np.zeros([12, 12]))
 # IMPLEMENT THE Q-LEARNING PROCESS
 
 # CREATE FUNCTION TO RUN Q-LEARNING BELLMAN EQUATION
-def qLearningProcess (R):
+def qLearningProcess (R, iterations):
     # Run the process 1000 times
-    for iterations in range(1000):
+    for learningTests in range(iterations):
         
         # Select a random state to start in
         current_state = np.random.randint(0, 12)
@@ -91,10 +91,10 @@ def route(starting_location, ending_location):
     ending_state = location_to_state[ending_location]
     
     # Update ending_state R Value
-    R_new[ending_state, ending_state] = 1000;
+    R_new[ending_state, ending_state] = 1000
     
     # Perform the Optimization Function
-    qLearningProcess(R_new)
+    qLearningProcess(R_new, 1000)
     
     # Initialize list with the starting location
     route = [starting_location]
